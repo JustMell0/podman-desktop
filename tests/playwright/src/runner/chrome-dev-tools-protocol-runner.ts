@@ -218,7 +218,7 @@ export class ChromeDevToolsProtocolRunner extends Runner {
     try {
       // Spawn the Electron process with remote debugging enabled
       this._electronProcess = spawn(executablePath, [`--remote-debugging-port=${debugPort}`], {
-        env: env as NodeJS.ProcessEnv,
+        env: { ...process.env, ...(env as NodeJS.ProcessEnv) },
         stdio: ['ignore', 'pipe', 'pipe'],
       });
 
