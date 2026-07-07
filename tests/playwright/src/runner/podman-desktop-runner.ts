@@ -83,7 +83,7 @@ export abstract class Runner {
   protected setupPodmanDesktopCustomFolder(): object {
     // create a clone of the env. object
     const env = { ...process.env };
-    const dir = join(this._customFolder);
+    const dir = resolve(this._customFolder);
     console.log(`podman desktop custom config will be written to: ${dir}`);
     env.PODMAN_DESKTOP_HOME_DIR = dir;
 
